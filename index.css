@@ -43,9 +43,11 @@ h2 {
 }
 
 #contentContainer {
+	margin: 0 auto;
+	padding: 0 100px;
+	max-width: 500px;
 	transition: opacity 600ms ease-in-out;
 	-webkit-transition: opacity 600ms ease-in-out;
-	padding: 0 100px;
 }
 
 #contentContainer.hidden {
