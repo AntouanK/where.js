@@ -24,7 +24,10 @@
 					So why not use something much more simpler and smaller?
 				</p>
 				<p>
-					<h3>where.js</h3>
+					<div id="whereJsLink">
+						<span>where.js </span>
+						<a href="http://www.github.com/antouank/where.js">antouank/where.js</a>
+					</div>
 					<br />
 					Where.js, is only checking the user agent or something that is unique in each browser/OS, so you can have a quick
 					detection of the environment you are in.
@@ -41,48 +44,6 @@
 		</div>
 		<a href="https://github.com/antouank/where.js"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
 	</body>
-	<script src="./main.js"></script>
 	<script src="./where.js"></script>
-	<script >
-
-		(function () {
-
-			console.log(window.where);
-
-			window.myNamespace = {};
-
-			window.where.setNamespace(myNamespace);
-			console.log(window.where);			
-			myNamespace.where.testAll();
-			myNamespace.where.addClassToBody();
-			
-			Object
-			.keys(myNamespace.where.browser)
-			.some(function (key) {
-				if(myNamespace.where.browser[key] === true){
-					document.getElementById('browser').textContent = key;
-					return true;
-				}
-			});
-
-			var osText = document.getElementById('os').textContent;
-
-			Object
-			.keys(myNamespace.where.os)
-			.some(function (key) {
-				if(myNamespace.where.os[key] === true){
-					osText += (osText === '' ? '' : ' ') + key;
-				}
-			});
-			document.getElementById('os').textContent = osText;
-
-
-			//	make links
-			document.getElementById('headerContainer').onclick = function(){ 
-
-				location.href = 'http://www.github.com/antouank/where.js';
-			};
-		}());
-		
-	</script>
+	<script src="./main.js"></script>
 </html>

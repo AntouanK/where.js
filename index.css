@@ -53,3 +53,17 @@ h2 {
 #contentContainer.hidden {
 	opacity: 0;
 }
+
+#whereJsLink {
+	transition: width 400ms ease-in-out;
+	-webkit-transition: width 400ms ease-in-out;
+	margin: 0 auto;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 60px;
+}
+
+#whereJsLink:hover {
+	width: 300px;
+}
+
