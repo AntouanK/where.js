@@ -21,17 +21,32 @@
 
 			console.log(window.where);
 
-			var myNamespace = {};
+			window.myNamespace = {};
 
 			window.where.setNamespace(myNamespace);
 			console.log(window.where);			
 			myNamespace.where.testAll();
 			myNamespace.where.addClassToBody();
 			
-			var classes = document.body.className.split(' ');
+			Object
+			.keys(myNamespace.where.browser)
+			.some(function (key) {
+				if(myNamespace.where.browser[key] === true){
+					document.getElementById('browser').textContent = key;
+					return true;
+				}
+			});
 
-			document.getElementById('browser').textContent = classes[0];
-			document.getElementById('os').textContent = classes[1];
+			var osText = document.getElementById('os').textContent;
+
+			Object
+			.keys(myNamespace.where.os)
+			.some(function (key) {
+				if(myNamespace.where.os[key] === true){
+					osText += (osText === '' ? '' : ' ') + key;
+				}
+			});
+			document.getElementById('os').textContent = osText;
 		}());
 		
 	</script>
