@@ -1,4 +1,10 @@
 /*
+ *	          where.js
+ *
+ *	Antonis Karamitros - 9 Feb 2014
+ *	@antouank 
+ *	http://antouank.github.io/where.js/
+ *
  *	lib to detect OS and browser we are in
  *
  *  -----------> NOTE <-----------
@@ -70,7 +76,6 @@
 			return window.devicePixelRatio >= 1.5;
 		}
 	};
-
 
 	//	----------- browser -----------
 	checkList.browser = {
@@ -160,7 +165,6 @@
 		}
 	};
 
-	//
 	// do all the tests and write the values on the namespace given
 	var testAll = function(callback){
 
@@ -208,7 +212,6 @@
 			}
 		});
 	};
-
 
 	/************ Expose API ************/
 	namespace.where =  {
