@@ -1,4 +1,8 @@
 /*
+ *	where.js
+ *
+ *	Antonis Karamitros	-	9 Feb 2014
+ *
  *	lib to detect OS and browser we are in
  *
  *  -----------> NOTE <-----------
@@ -61,13 +65,16 @@
 			return /iP(ad|hone|od)/i.test(navigator.userAgent);
 		},
 		android: function(){
-			return navigator.userAgent.toLowerCase().indexOf("android") > -1;
+			return /android/i.test(navigator.userAgent);
 		},
 		mac: function(){
 			return /mac/i.test(navigator.platform);
 		},
 		retina: function(){
 			return window.devicePixelRatio >= 1.5;
+		},
+		blackBerry: function() {
+			return /blackberry/i.test(navigator.userAgent);
 		}
 	};
 
@@ -78,7 +85,7 @@
 			return !!window.chrome && /google/i.test(navigator.vendor);
 		},
 		chromium: function(){
-			return /cros i686/i.test(navigator.platform);
+			return /cros i686/i.test(navigator.platform) && /chromium/i.test(navigator.userAgent);
 		},
 		opera: function(){
 			return !!window.opera || /opera/i.test(navigator.vendor);
@@ -203,6 +210,7 @@
 			var currentClasses = document.body.className,
 				classToAdd = prefix + validValue;
 
+			//	don't duplicate classes
 			if(currentClasses.match(classToAdd) === null){
 				document.body.className += (document.body.className === '' ? '' : ' ') + classToAdd;
 			}

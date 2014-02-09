@@ -3,10 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<title>where.js - a JS lib for recognizing browser and OS</title>
-
+		<script type="text/javascript" src="//use.typekit.net/she7qnb.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<link rel="stylesheet" type="text/css" href="./index.css">
 	</head>
 	<body>
 		<h2>where.js</h2>
+		<p>
+			You want to know in which browser and OS your JS is running, but you don't want to write the
+			tests every time you make a project. And modernizr is great, but if you don't want to include a whole library
+			just for the browser/OS detection, why not use something much more simpler and smaller?
+			Actually, modernizr detects features in the browser, by testing them one by one, to see if they are implemented.
+			Where.js, is only checking the user agent or something that is unique in each browser/OS, so you can have a quick
+			detection of the environment you are in.
+		</p>
 		<p>
 			<span>Browser : </span><span id="browser"></span>
 		</p>
