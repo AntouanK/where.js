@@ -8,21 +8,35 @@
 		<link rel="stylesheet" type="text/css" href="./index.css">
 	</head>
 	<body>
-		<h2>where.js</h2>
-		<p>
-			You want to know in which browser and OS your JS is running, but you don't want to write the
-			tests every time you make a project. And modernizr is great, but if you don't want to include a whole library
-			just for the browser/OS detection, why not use something much more simpler and smaller?
-			Actually, modernizr detects features in the browser, by testing them one by one, to see if they are implemented.
-			Where.js, is only checking the user agent or something that is unique in each browser/OS, so you can have a quick
-			detection of the environment you are in.
-		</p>
-		<p>
-			<span>Browser : </span><span id="browser"></span>
-		</p>
-		<p>
-			<span>OS : </span><span id="os"></span>
-		</p>
+		<div id="mainContainer">
+			<div id="headerContainer">
+				<span id="headerText">where.js</span>
+			</div>
+			<div id="contentContainer">
+				<p>
+					You want to know in which browser and OS your JS is running, but you don't want to write the
+					tests every time you make a project. 
+				</p>
+				<p>
+					And modernizr is great, but if you don't want to include a whole library
+					just for the browser/OS detection, why not use something much more simpler and smaller?
+				</p>
+				<p>
+					Actually, modernizr detects features in the browser, by testing them one by one, to see if they are implemented.
+				</p>
+				<p>
+					Where.js, is only checking the user agent or something that is unique in each browser/OS, so you can have a quick
+					detection of the environment you are in.
+				</p>
+				<p>
+					<span>your browser : </span><span id="browser"></span>
+				</p>
+				<p>
+					<span>your platform : </span><span id="os"></span>
+				</p>
+			</div>
+		</div>
+		<a href="https://github.com/antouank/where.js"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
 	</body>
 	<script src="./where.js"></script>
 	<script >
@@ -57,6 +71,13 @@
 				}
 			});
 			document.getElementById('os').textContent = osText;
+
+
+			//	make links
+			document.getElementById('headerContainer').onclick = function(){ 
+
+				location.href = 'http://www.github.com/antouank/where.js';
+			};
 		}());
 		
 	</script>

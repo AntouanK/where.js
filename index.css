@@ -1,5 +1,33 @@
-body {
+
+html,
+body,
+h1,
+h2 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+#mainContainer {
 	font-family: "museo-sans",sans-serif;
 	text-align: center;
-	margin: 0 40px;
+}
+
+#headerContainer {
+	height: 80px;
+	padding: 40px;
+	background-color: #3da1d1;
+	border-bottom: 1px #444 solid;
+	color: #fff;
+}
+
+#headerText {
+	font-size: 50px;
+	font-weight: 100;
+	cursor: pointer;
+}
+
+#contentContainer {
+	padding: 0 100px;
 }

@@ -10,20 +10,20 @@
  *  IF YOU DO, CAREFUL FOR COMMENTS REMOVAL!!!!
  *	IE TESTS INCLUDE COMMENTS
  *
- *	Insructions
+ *	Instructions
  *	-----------
  *
- *	Lib returns a 'testAll' function, which is used to do
+ *	Lib returns testAll() function, which is used to do
  *	the tests.
- * 	Also returns addClassToBody, so you can add a class to the body
+ * 	Also returns addClassToBody(), so you can add a class to the body
  *	with the names of the tests passing.
  *	There is a setPrefix() so you can set your class prefix,
- *	and there is a setNamespace, so you can move the library wherever you want, 
+ *	and there is a setNamespace(), so you can move the library wherever you want, 
  *	and restore the 'where' property of the global namespace to whatever it was,
  *	to avoid conflicts.
  *
  ***************/
-(function(window) {
+(function() {
 
 	'use strict';
 
@@ -226,4 +226,4 @@
 		addClassToBody: addClassToBody
 	};
 
-}(window));
+}());
