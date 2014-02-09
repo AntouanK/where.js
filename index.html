@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>where.js - a JS lib for recognizing browser and OS</title>
+
+	</head>
+	<body>
+		<h2>where.js</h2>
+		<p>
+			<span>Browser : </span><span id="browser"></span>
+		</p>
+		<p>
+			<span>OS : </span><span id="os"></span>
+		</p>
+	</body>
+	<script src="./where.js"></script>
+	<script >
+
+		(function () {
+
+			console.log(window.where);
+
+			var myNamespace = {};
+
+			window.where.setNamespace(myNamespace);
+			console.log(window.where);			
+			myNamespace.where.testAll();
+			myNamespace.where.addClassToBody();
+			
+			var classes = document.body.className.split(' ');
+
+			document.getElementById('browser').textContent = classes[0];
+			document.getElementById('os').textContent = classes[1];
+		}());
+		
+	</script>
+</html>
