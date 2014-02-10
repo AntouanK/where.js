@@ -1,5 +1,5 @@
 /*
- *	where.js
+ *				where.js
  *
  *	Antonis Karamitros	-	9 Feb 2014
  *
@@ -13,12 +13,13 @@
  *	Instructions
  *	-----------
  *
- *	Lib returns testAll() function, which is used to do
- *	the tests.
- * 	Also returns addClassToBody(), so you can add a class to the body
+ *	Lib returns :
+ *	- testAll() function, which is used to do
+ *	the tests ( should call it once ).
+ * 	- addClassToBody(), so you can add a class to the body
  *	with the names of the tests passing.
- *	There is a setPrefix() so you can set your class prefix,
- *	and there is a setNamespace(), so you can move the library wherever you want, 
+ *	- setPrefix() so you can set your class prefix,
+ *	- setNamespace(), so you can move the library wherever you want, 
  *	and restore the 'where' property of the global namespace to whatever it was,
  *	to avoid conflicts.
  *
@@ -139,6 +140,7 @@
 		}
 	};
 
+	//	set a prefix for the classes we are going to add to the <body>
 	var setPrefix = function(pre){
 
 		if(pre !== ''){
@@ -148,6 +150,8 @@
 		}
 	};
 
+	//	set out namespace object, in which the 'where' library will move
+	//	it also restores back the window.where object
 	var setNamespace = function(ns){
 
 		if(typeof ns === 'object' && ns !== null){
@@ -203,6 +207,8 @@
 		return this;
 	};
 
+	//	add OS and browser classes to <body> so you can easily style your page
+	//	without making further checks every time
 	var addClassToBody = function(){
 	
 		testAll(function(validValue){
@@ -217,13 +223,12 @@
 		});
 	};
 
-
 	/************ Expose API ************/
 	namespace.where =  {
+		addClassToBody: addClassToBody,
 		setPrefix: setPrefix,
 		setNamespace: setNamespace,
-		testAll: testAll,
-		addClassToBody: addClassToBody
+		testAll: testAll
 	};
 
 }());

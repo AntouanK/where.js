@@ -1,12 +1,12 @@
 (function(){
 	
-
+	//	initialize where in myNamespace
 	window.myNamespace = {};
-
 	window.where.setNamespace(myNamespace);
 	myNamespace.where.testAll();
 	myNamespace.where.addClassToBody();
 	
+	//	write the browser and OS we are in
 	Object
 	.keys(myNamespace.where.browser)
 	.some(function (key) {
@@ -27,13 +27,12 @@
 	});
 	document.getElementById('os').textContent = osText;
 
-
 	//	make links
-	document.getElementById('headerContainer').onclick = function(){ 
+	document.getElementById('headerText').onclick = function(){ 
 
 		location.href = 'http://www.github.com/antouank/where.js';
 	};
-			
+
 	var header = document.getElementById('headerContainer'),
 		contentContainer = document.getElementById('contentContainer'),
 		hoverHeaderHandler = function(ev){

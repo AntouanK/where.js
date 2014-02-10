@@ -29,10 +29,15 @@ h2 {
 	height: 60px;
 }
 
-#headerText {
+#headerTextContainer {
 	position: absolute;
-	bottom: 60px;
-	right: 42%;
+	bottom: 40px;
+	left: 30%;
+	width: 40%;
+	text-align: center;
+}
+
+#headerText {
 	font-size: 50px;
 	font-weight: 100;
 	cursor: pointer;
@@ -46,8 +51,8 @@ h2 {
 	margin: 0 auto;
 	padding: 0 100px;
 	max-width: 500px;
-	transition: opacity 600ms ease-in-out;
-	-webkit-transition: opacity 600ms ease-in-out;
+	transition: opacity 800ms ease-in-out;
+	-webkit-transition: opacity 800ms ease-in-out;
 }
 
 #contentContainer.hidden {
@@ -55,12 +60,13 @@ h2 {
 }
 
 #whereJsLink {
-	transition: width 400ms ease-in-out;
-	-webkit-transition: width 400ms ease-in-out;
+	transition: width 600ms ease-in-out;
+	-webkit-transition: width 600ms ease-in-out;
 	margin: 0 auto;
 	overflow: hidden;
 	white-space: nowrap;
 	width: 60px;
+	color: #3da1d1;
 }
 
 #whereJsLink:hover {
