@@ -1,3 +1,5 @@
+//	code for a simple gh-pages front for where.js
+
 (function(){
 	
 	//	initialize where in myNamespace
