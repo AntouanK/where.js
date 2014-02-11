@@ -47,6 +47,11 @@
 			},700);
 		};
 
-
 	header.addEventListener('mouseover', hoverHeaderHandler);
+
+
+	var p = document.getElementsByTagName('p');
+	lText.giveLife(p[0]);
+	lText.giveLife(p[1]);
+
 }());
