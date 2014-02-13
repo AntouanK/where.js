@@ -60,8 +60,8 @@ h2 {
 }
 
 #whereJsLink {
-	transition: width 600ms ease-in-out;
-	-webkit-transition: width 600ms ease-in-out;
+	transition: width 600ms;
+	-webkit-transition: width 600ms;
 	margin: 0 auto;
 	overflow: hidden;
 	white-space: nowrap;

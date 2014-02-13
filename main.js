@@ -54,4 +54,6 @@
 	lText.giveLife(p[0]);
 	lText.giveLife(p[1]);
 
+	window.p = p;
+
 }());
