@@ -1,8 +1,9 @@
+//	implement some AMD loading capability
 (function(){
 	
-	window.lText = (function(){
+	window.typeWriter = (function(){
 
-		var DEFAULT_TIMING = 130;	//	default timing between typing
+		var DEFAULT_TIMING = 110;	//	default timing between typing
 
 		//----------------------------------------------------------------------
 		var TypeWriter = function(ele){
@@ -40,26 +41,33 @@
 			this.textEle.textContent = this.text;
 		};
 
-		TypeWriter.prototype.startWriting = function(timing){
+		TypeWriter.prototype.startWriting = function(options){
 
-			if(typeof timing !== 'number'){
-				timing = DEFAULT_TIMING;
+			options = options || {};
+
+			if(typeof options.timing !== 'number'){
+				options.timing = DEFAULT_TIMING;
 			}
 
-			var defTiming   = timing,
+			var defTiming   = options.timing,
 				spaceTiming = 300,	//	some timing for spaces
 				thisEle		= this,
 				textEle     = this.textEle,
 				text        = this.text,
 				textLen     = this.text.length,
 				cursorEle   = this.cursorEle,
-				i           = 0;
+				i           = 0,
+				errRetries  = 2,
+				randErrIndex = Math.floor(Math.random()*35)+4,
+				textContentBuf,
+				a_z = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','v','w','x',';'];
 
 			//	make cursor stop blinking
 			this.cursorEle.classList.add('noBlink');
 
 			var loopFn = function(){
 			
+				//	when we have nothing else to type...
 				if(i === textLen){
 					//	clear the interval
 					clearTimeout(thisEle.typeTimeout);
@@ -68,24 +76,48 @@
 					//	enable blinking again
 					cursorEle.classList.remove('noBlink');
 					console.log('interval stopped');
+
+					if(typeof options.onEnd === 'function'){
+						options.onEnd();
+					}
 					return false;
 				}
+
+				if(i === randErrIndex && errRetries !== 0){
+
+					if(textContentBuf !== undefined){
+						textEle.textContent = textContentBuf;
+					}
+					//	keep the original context
+					textContentBuf = textEle.textContent;
+					//	append a random character
+					textEle.textContent += a_z[Math.floor(Math.random()*23)];
+					thisEle.typeTimeout = setTimeout(loopFn, options.timing+300);
+					errRetries -= 1;
+					return;
+				} else if(errRetries === 0){
+					errRetries = 2;
+					randErrIndex = i + Math.floor(Math.random()*10);
+					textEle.textContent = textContentBuf;
+					textContentBuf = undefined;
+				}
+				//	append the next character to the content
 				textEle.textContent += text[i];
-				i += 1;
+				i += 1;	//	increase the current character counter
 
 				//	check next letter to input
-				if(text[i].match(/\s/) !== null){
+				if(i !== textLen && text[i].match(/\s/) !== null){
 					//	next one is a space, increase timing
-					timing = 100 + Math.floor(spaceTiming * Math.random());
+					options.timing = 100 + Math.floor(spaceTiming * Math.random());
 				} else {
 					//	next one is not space, revert timing
-					timing = defTiming;
+					options.timing = defTiming;
 				}
 
-				thisEle.typeTimeout = setTimeout(loopFn, timing);
+				thisEle.typeTimeout = setTimeout(loopFn, options.timing);
 			};
 
-			this.typeTimeout = setTimeout(loopFn, timing);
+			this.typeTimeout = setTimeout(loopFn, options.timing);
 		};
 		//----------------------------------------------------------------------
 
@@ -97,10 +129,11 @@
 
 			for(;i<cursors.length;i+=1){
 				if(!cursors[i].classList.contains('noBlink')){
-					cursors[i].style.opacity = cursors[i].style.opacity === '0' ? '1' : '0';
+					cursors[i].style.opacity = 
+						(cursors[i].style.opacity === '0') ? '1' : '0';
 				}
 			}
-		}, 650);
+		}, 650);	//	cursor blinking interval
 
 		//	stop cursors blinking
 		var stopCursor = function(){
@@ -139,8 +172,15 @@
 			ele.typeWriter = new TypeWriter(ele);
 		};
 
+		var takeLife = function(ele){
+		
+			ele.removeChild(ele.getElementsByClassName('typeWriter-cursor')[0]);
+			ele.typeWriter = undefined;
+		};
+
 		return {
 			giveLife: giveLife,
+			takeLife: takeLife,
 			stopCursor: stopCursor
 		}
 	}());

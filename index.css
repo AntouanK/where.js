@@ -11,7 +11,7 @@ h2 {
 
 #mainContainer {
 	font-family: "museo-sans",sans-serif;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 #headerContainer {
@@ -60,16 +60,34 @@ h2 {
 }
 
 #whereJsLink {
-	transition: width 600ms;
-	-webkit-transition: width 600ms;
+	transition: width 600ms, opacity 1000ms;
+	-webkit-transition: width 600ms, opacity 1000ms;
 	margin: 0 auto;
+	font-size: 30px;
 	overflow: hidden;
 	white-space: nowrap;
-	width: 60px;
+	width: 120px;
 	color: #3da1d1;
 }
 
-#whereJsLink:hover {
-	width: 300px;
+#whereJsLink.hidden {
+	opacity: 0;
 }
 
+#whereJsLink a:visited {
+	color: #444;
+	text-decoration: none;
+}
+
+#whereJsLink span {
+	cursor: default;
+}
+
+#whereJsLink:hover {
+	width: 370px;
+}
+
+
+#detected {
+	text-align: center;
+}
