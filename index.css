@@ -79,8 +79,27 @@ h2 {
 	text-decoration: none;
 }
 
+#whereJsLink a {
+	transition: left 600ms;
+	-webkit-transition: left 600ms;
+	position: relative;
+	left: 0;
+}
+
 #whereJsLink span {
+	transition: left 600ms;
+	-webkit-transition: left 600ms;
+	position: relative;
+	left: 0;
 	cursor: default;
+}
+
+#whereJsLink:hover span {
+	left: -120px;
+}
+
+#whereJsLink:hover a {
+	left: -50px;
 }
 
 #whereJsLink:hover {
