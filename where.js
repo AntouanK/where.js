@@ -1,9 +1,7 @@
 /*
- *	          where.js
+ *				where.js
  *
- *	Antonis Karamitros - 9 Feb 2014
- *	@antouank 
- *	http://antouank.github.io/where.js/
+ *	Antonis Karamitros	-	9 Feb 2014
  *
  *	lib to detect OS and browser we are in
  *
@@ -12,20 +10,21 @@
  *  IF YOU DO, CAREFUL FOR COMMENTS REMOVAL!!!!
  *	IE TESTS INCLUDE COMMENTS
  *
- *	Insructions
+ *	Instructions
  *	-----------
  *
- *	Lib returns a 'testAll' function, which is used to do
- *	the tests.
- * 	Also returns addClassToBody, so you can add a class to the body
+ *	Lib returns :
+ *	- testAll() function, which is used to do
+ *	the tests ( should call it once ).
+ * 	- addClassToBody(), so you can add a class to the body
  *	with the names of the tests passing.
- *	There is a setPrefix() so you can set your class prefix,
- *	and there is a setNamespace, so you can move the library wherever you want, 
+ *	- setPrefix() so you can set your class prefix,
+ *	- setNamespace(), so you can move the library wherever you want, 
  *	and restore the 'where' property of the global namespace to whatever it was,
  *	to avoid conflicts.
  *
  ***************/
-(function(window) {
+(function() {
 
 	'use strict';
 
@@ -67,15 +66,19 @@
 			return /iP(ad|hone|od)/i.test(navigator.userAgent);
 		},
 		android: function(){
-			return navigator.userAgent.toLowerCase().indexOf("android") > -1;
+			return /android/i.test(navigator.userAgent);
 		},
 		mac: function(){
 			return /mac/i.test(navigator.platform);
 		},
 		retina: function(){
 			return window.devicePixelRatio >= 1.5;
+		},
+		blackBerry: function() {
+			return /blackberry/i.test(navigator.userAgent);
 		}
 	};
+
 
 	//	----------- browser -----------
 	checkList.browser = {
@@ -83,7 +86,7 @@
 			return !!window.chrome && /google/i.test(navigator.vendor);
 		},
 		chromium: function(){
-			return /cros i686/i.test(navigator.platform);
+			return /cros i686/i.test(navigator.platform) && /chromium/i.test(navigator.userAgent);
 		},
 		opera: function(){
 			return !!window.opera || /opera/i.test(navigator.vendor);
@@ -137,6 +140,7 @@
 		}
 	};
 
+	//	set a prefix for the classes we are going to add to the <body>
 	var setPrefix = function(pre){
 
 		if(pre !== ''){
@@ -146,6 +150,8 @@
 		}
 	};
 
+	//	set out namespace object, in which the 'where' library will move
+	//	it also restores back the window.where object
 	var setNamespace = function(ns){
 
 		if(typeof ns === 'object' && ns !== null){
@@ -165,6 +171,7 @@
 		}
 	};
 
+	//
 	// do all the tests and write the values on the namespace given
 	var testAll = function(callback){
 
@@ -200,6 +207,8 @@
 		return this;
 	};
 
+	//	add OS and browser classes to <body> so you can easily style your page
+	//	without making further checks every time
 	var addClassToBody = function(){
 	
 		testAll(function(validValue){
@@ -207,6 +216,7 @@
 			var currentClasses = document.body.className,
 				classToAdd = prefix + validValue;
 
+			//	don't duplicate classes
 			if(currentClasses.match(classToAdd) === null){
 				document.body.className += (document.body.className === '' ? '' : ' ') + classToAdd;
 			}
@@ -215,10 +225,10 @@
 
 	/************ Expose API ************/
 	namespace.where =  {
+		addClassToBody: addClassToBody,
 		setPrefix: setPrefix,
 		setNamespace: setNamespace,
-		testAll: testAll,
-		addClassToBody: addClassToBody
+		testAll: testAll
 	};
 
-}(window));
+}());
