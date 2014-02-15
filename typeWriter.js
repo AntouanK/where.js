@@ -9,8 +9,8 @@
 		var TypeWriter = function(ele){
 		 
 		 	this.ele       = ele;
-		 	this.textEle   = this.ele.getElementsByClassName('typeWriter-text')[0];
-		 	this.cursorEle = this.ele.getElementsByClassName('typeWriter-cursor')[0];
+		 	this.textEle   = this.ele.querySelectorAll('.typeWriter-text')[0];
+		 	this.cursorEle = this.ele.querySelectorAll('.typeWriter-cursor')[0];
 			this.text      = this.textEle.textContent.replace(/\s+/g,' ');
 			this.typeTimeout;	//	use it to save the typing interval
 
@@ -125,7 +125,7 @@
 		var cursorAliveInterval = setInterval(function(){
 		 
 			var i=0,
-				cursors = window.document.getElementsByClassName('typeWriter-cursor');
+				cursors = window.document.querySelectorAll('.typeWriter-cursor');
 
 			for(;i<cursors.length;i+=1){
 				if(!cursors[i].classList.contains('noBlink')){
@@ -174,7 +174,7 @@
 
 		var takeLife = function(ele){
 		
-			ele.removeChild(ele.getElementsByClassName('typeWriter-cursor')[0]);
+			ele.removeChild(ele.querySelectorAll('.typeWriter-cursor')[0]);
 			ele.typeWriter = undefined;
 		};
 

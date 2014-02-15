@@ -51,19 +51,19 @@
 			return /win/i.test(navigator.platform);
 		},
 		winPhone7: function(){
-			return /Windows Phone 7.0/i.test(navigator.userAgent);
+			return /windows phone 7\.0/i.test(navigator.userAgent);
 		},
 		winPhone75: function(){
-			return /Windows Phone 7.5/i.test(navigator.userAgent);
+			return /windows phone 7\.5/i.test(navigator.userAgent);
 		},
 		winPhone8: function(){
-			return /Windows Phone 8.0/i.test(navigator.userAgent);
+			return /windows phone 8\.0/i.test(navigator.userAgent);
 		},
 		linux: function(){
 			return /linux/i.test(navigator.platform) && !/android|cros/i.test(navigator.userAgent);
 		},
 		ios: function(){
-			return /iP(ad|hone|od)/i.test(navigator.userAgent);
+			return /ip(ad|hone|od)/i.test(navigator.userAgent);
 		},
 		android: function(){
 			return /android/i.test(navigator.userAgent);
