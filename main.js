@@ -37,7 +37,7 @@
 		myNamespace.where.browser.ie8){
 
 		oldBrowser = true;
-		document.getElementById('whereJsLink').classList.remove('hidden');
+		document.getElementById('whereJsLink').className.replace('hidden', '');
 	} else {
 		var addTextToP = function(){
 		
@@ -54,7 +54,7 @@
 					p[1].typeWriter.startWriting({
 						onEnd: function(){
 						 
-							document.getElementById('whereJsLink').classList.remove('hidden');
+							document.getElementById('whereJsLink').className.replace('hidden', '');
 						}
 					});
 					typeWriter.takeLife(p[0]);

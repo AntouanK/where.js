@@ -63,7 +63,7 @@
 				a_z = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','v','w','x',';'];
 
 			//	make cursor stop blinking
-			this.cursorEle.classList.add('noBlink');
+			this.cursorEle.className += ' noBlink';
 
 			var loopFn = function(){
 			
@@ -74,7 +74,7 @@
 					//	remove the reference to it
 					thisEle.typeTimeout = undefined;
 					//	enable blinking again
-					cursorEle.classList.remove('noBlink');
+					cursorEle.className = cursorEle.className.replace('noBlink', '');
 					console.log('interval stopped');
 
 					if(typeof options.onEnd === 'function'){
@@ -128,7 +128,7 @@
 				cursors = window.document.querySelectorAll('.typeWriter-cursor');
 
 			for(;i<cursors.length;i+=1){
-				if(!cursors[i].classList.contains('noBlink')){
+				if(cursors[i].className.split(' ').indexOf('noBlink') === -1){
 					cursors[i].style.opacity = 
 						(cursors[i].style.opacity === '0') ? '1' : '0';
 				}
@@ -158,8 +158,8 @@
 		 	textEle.textContent = ele.textContent;
 
 		 	//	add the 'typeWriter' class to the element
-		 	if (!ele.classList.contains('typeWriter')){
-  				ele.classList.add('typeWriter')	
+		 	if(ele.className.split(' ').indexOf('typeWriter') === -1){
+  				ele.className += ' typeWriter';
   			}			
 
   			//	clear the text content
