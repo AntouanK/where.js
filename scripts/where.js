@@ -36,7 +36,11 @@
 		};
 	//	------------------------------
 
-	if(namespace === undefined){
+
+	if(define !== undefined && require !== undefined){
+		namespace = {};
+		define(namespace);
+	} else if(namespace === undefined){
 		namespace = window;
 		if(namespace.where !== undefined){
 			namespace._oldWhere = namespace.where;

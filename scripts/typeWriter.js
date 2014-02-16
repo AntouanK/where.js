@@ -1,26 +1,26 @@
 //	implement some AMD loading capability
 (function(){
-	
-	window.typeWriter = (function(){
+
+	var typewriter = (function(){
 
 		var DEFAULT_TIMING = 110;	//	default timing between typing
 
 		//----------------------------------------------------------------------
-		var TypeWriter = function(ele){
+		var Typewriter = function(ele){
 		 
 		 	this.ele       = ele;
-		 	this.textEle   = this.ele.querySelectorAll('.typeWriter-text')[0];
-		 	this.cursorEle = this.ele.querySelectorAll('.typeWriter-cursor')[0];
+		 	this.textEle   = this.ele.querySelectorAll('.typewriter-text')[0];
+		 	this.cursorEle = this.ele.querySelectorAll('.typewriter-cursor')[0];
 			this.text      = this.textEle.textContent.replace(/\s+/g,' ');
 			this.typeTimeout;	//	use it to save the typing interval
 
-			ele.typeWriter = this;
+			ele.typewriter = this;
 
 			return this;
 		};
 
 		//	clear the text ( leave the cursor only )
-		TypeWriter.prototype.clear = function(){
+		Typewriter.prototype.clear = function(){
 		
 			this.textEle.textContent = '';
 			if(this.typeTimeout !== undefined){
@@ -30,18 +30,18 @@
 		};
 
 		//	set some new text to the object memory
-		TypeWriter.prototype.setText = function(text){
+		Typewriter.prototype.setText = function(text){
 
 			this.text = text;
 		};
 
 		//	show the text from the memory ( instantly )
-		TypeWriter.prototype.showText = function(){
+		Typewriter.prototype.showText = function(){
 		
 			this.textEle.textContent = this.text;
 		};
 
-		TypeWriter.prototype.startWriting = function(options){
+		Typewriter.prototype.startWriting = function(options){
 
 			options = options || {};
 
@@ -75,7 +75,6 @@
 					thisEle.typeTimeout = undefined;
 					//	enable blinking again
 					cursorEle.className = cursorEle.className.replace('noBlink', '');
-					console.log('interval stopped');
 
 					if(typeof options.onEnd === 'function'){
 						options.onEnd();
@@ -125,7 +124,7 @@
 		var cursorAliveInterval = setInterval(function(){
 		 
 			var i=0,
-				cursors = window.document.querySelectorAll('.typeWriter-cursor');
+				cursors = window.document.querySelectorAll('.typewriter-cursor');
 
 			for(;i<cursors.length;i+=1){
 				if(cursors[i].className.split(' ').indexOf('noBlink') === -1){
@@ -141,7 +140,7 @@
 			clearInterval(cursorAliveInterval);
 		};
 
-		//	make a typeWriter object from en element
+		//	make a typewriter object from en element
 		var giveLife = function(ele){
 
 			//	check that ele is an HTML element
@@ -152,14 +151,14 @@
 		 	//	make the cursor element
 		 	var cursorEle = document.createElement('span'),
 		 		textEle =  document.createElement('span');
-		 	cursorEle.className = 'typeWriter-cursor';
+		 	cursorEle.className = 'typewriter-cursor';
 		 	cursorEle.textContent = '_';
-		 	textEle.className = 'typeWriter-text';
+		 	textEle.className = 'typewriter-text';
 		 	textEle.textContent = ele.textContent;
 
-		 	//	add the 'typeWriter' class to the element
-		 	if(ele.className.split(' ').indexOf('typeWriter') === -1){
-  				ele.className += ' typeWriter';
+		 	//	add the 'typewriter' class to the element
+		 	if(ele.className.split(' ').indexOf('typewriter') === -1){
+  				ele.className += ' typewriter';
   			}			
 
   			//	clear the text content
@@ -169,13 +168,13 @@
 			ele.appendChild(textEle);
 			ele.appendChild(cursorEle);
 
-			ele.typeWriter = new TypeWriter(ele);
+			ele.typewriter = new Typewriter(ele);
 		};
 
 		var takeLife = function(ele){
 		
-			ele.removeChild(ele.querySelectorAll('.typeWriter-cursor')[0]);
-			ele.typeWriter = undefined;
+			ele.removeChild(ele.querySelectorAll('.typewriter-cursor')[0]);
+			ele.typewriter = undefined;
 		};
 
 		return {
@@ -184,4 +183,10 @@
 			stopCursor: stopCursor
 		}
 	}());
+
+	if(define !== undefined && require !== undefined){
+		define(typewriter);
+	} else {
+		window.typewriter = typewriter;
+	}
 }());
