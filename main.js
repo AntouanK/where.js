@@ -85,6 +85,10 @@
 			},700);
 		};
 
-	header.addEventListener('mouseover', hoverHeaderHandler);
+	if(header.addEventListener === undefined){
+		header.attachEvent('mouseover', hoverHeaderHandler);
+	} else {
+		header.addEventListener('mouseover', hoverHeaderHandler);
+	}
 
 }());
