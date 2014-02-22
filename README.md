@@ -28,13 +28,14 @@ It currently recognizes :
   * opera
 
 
-You can add a class to the <body> of your document so you can use different CSS rules depending on where your page is every time.
+You can add a class to the \<body\> of your document so you can use different CSS rules depending on where your page is every time.
 Also you can prefix the class.
 
 For example
 
 ```javascript
 //	code for a simple gh-pages front for where.js
+//	we load where.js with require.js
 require(["where"], function(whereModule) {
 
 	var where = whereModule.where;
@@ -45,9 +46,7 @@ require(["where"], function(whereModule) {
 	where.setPrefix('where');
 	//  add the appropriate classes to the <body>
 	where.addClassToBody();
-	
 	//  e.g. now we have <body where-chrome where-linux>
-	
 	/*
 	where.browser
 	> Object {chrome: true, chromium: false, opera: false, ie6: false, ie7: false…}
@@ -55,5 +54,6 @@ require(["where"], function(whereModule) {
 	where.os
 	> Object {win: false, winPhone7: false, winPhone75: false, winPhone8: false, linux: true…}
 	*/
+	...
 	
 ```
