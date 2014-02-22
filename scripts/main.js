@@ -51,7 +51,7 @@ require(["where"], function(whereModule) {
 					onEnd: function(){
 
 						typewriter.giveLife(p[1]);
-						p[1].typewriter.setText('You don\'t want to write the tests in every project');
+						p[1].typewriter.setText('You don\'t want to write the same tests in every project');
 						p[1].typewriter.startWriting({
 							onEnd: function(){
 							 

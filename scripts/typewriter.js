@@ -3,7 +3,7 @@
 
 	var typewriter = (function(){
 
-		var DEFAULT_TIMING = 110;	//	default timing between typing
+		var DEFAULT_TIMING = 120;	//	default timing between typing
 
 		//----------------------------------------------------------------------
 		var Typewriter = function(ele){
@@ -56,7 +56,7 @@
 				text        = this.text,
 				textLen     = this.text.length,
 				cursorEle   = this.cursorEle,
-				i           = 0,
+				letterIndex = 0,
 				errRetries  = 2,
 				randErrIndex = Math.floor(Math.random()*35)+4,
 				textContentBuf,
@@ -68,7 +68,8 @@
 			var loopFn = function(){
 			
 				//	when we have nothing else to type...
-				if(i === textLen){
+				if(letterIndex === textLen){
+					letterIndex = 0;
 					//	clear the interval
 					clearTimeout(thisEle.typeTimeout);
 					//	remove the reference to it
@@ -82,7 +83,7 @@
 					return false;
 				}
 
-				if(i === randErrIndex && errRetries !== 0){
+				if(letterIndex === randErrIndex && errRetries !== 0){
 
 					if(textContentBuf !== undefined){
 						textEle.textContent = textContentBuf;
@@ -95,17 +96,18 @@
 					errRetries -= 1;
 					return;
 				} else if(errRetries === 0){
-					errRetries = 2;
-					randErrIndex = i + Math.floor(Math.random()*10);
+					errRetries = Math.floor(Math.random()*2)+1;
+					console.log(letterIndex);
+					randErrIndex = Math.floor(Math.random()*35)+4;
 					textEle.textContent = textContentBuf;
 					textContentBuf = undefined;
 				}
 				//	append the next character to the content
-				textEle.textContent += text[i];
-				i += 1;	//	increase the current character counter
+				textEle.textContent += text[letterIndex];
+				letterIndex += 1;	//	increase the current character counter
 
 				//	check next letter to input
-				if(i !== textLen && text[i].match(/\s/) !== null){
+				if(letterIndex !== textLen && text[letterIndex].match(/\s/) !== null){
 					//	next one is a space, increase timing
 					options.timing = 100 + Math.floor(spaceTiming * Math.random());
 				} else {
