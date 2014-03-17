@@ -19,7 +19,7 @@
  * 	- addClassToBody(), so you can add a class to the body
  *	with the names of the tests passing.
  *	- setPrefix() so you can set your class prefix,
- *	- setNamespace(), so you can move the library wherever you want, 
+ *	- setNamespace(), so you can move the library wherever you want,
  *	and restore the 'where' property of the global namespace to whatever it was,
  *	to avoid conflicts.
  *
@@ -105,7 +105,7 @@
 			if (@_jscript_version == 5.7 && /MSIE 7\.0(?!.*IEMobile)/i.test(navigator.userAgent))
 			version = true
 			@*/
-			return version;	
+			return version;
 		},
 		ie8: function(){
 			var version = false;
@@ -139,6 +139,9 @@
 			return /Constructor/.test(window.HTMLElement);
 		}
 	};
+
+	//	check for ECMAscript 5
+	//	if(window.JSON === undefined){//	we have ES3 } else {//	we have ES5 }
 
 	//	set a prefix for the classes we are going to add to the <body>
 	var setPrefix = function(pre){
@@ -197,7 +200,7 @@
 		for(browserName in checkList.browser){
 			//	run test and assign result
 			namespace.where.browser[browserName] = checkList.browser[browserName]();
-			
+
 			//	if true, run callback with test name
 			if(namespace.where.browser[browserName] && typeof callback === 'function'){
 				callback(browserName);
@@ -210,9 +213,9 @@
 	//	add OS and browser classes to <body> so you can easily style your page
 	//	without making further checks every time
 	var addClassToBody = function(){
-	
+
 		testAll(function(validValue){
-			
+
 			var currentClasses = document.body.className,
 				classToAdd = prefix + validValue;
 
