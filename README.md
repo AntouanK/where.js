@@ -3,9 +3,9 @@ where.js
 
 Where.js A lib for recognising the browser and the OS/platform you are running your JS in.
 
-http://antouank.github.io/where.js/
+[antouank.github.io/where.js](http://antouank.github.io/where.js/)
 
-It currently recognizes :
+It currently recognises :
 
 ------------- OS -------------
   * mac ( retina )
@@ -91,5 +91,4 @@ require(["where"], function(whereModule) {
 	where.os
 	> Object {win: false, winPhone7: false, winPhone75: false, winPhone8: false, linux: true…}
 	*/
-
 ```
