@@ -146,11 +146,9 @@
 	//	set a prefix for the classes we are going to add to the <body>
 	var setPrefix = function(pre){
 
-		if(pre !== ''){
-			prefix = pre + '-';
-		} else {
-			prefix = '';
-		}
+		prefix = pre !== '' ? pre : '';
+
+		return this;
 	};
 
 	//	set out namespace object, in which the 'where' library will move
