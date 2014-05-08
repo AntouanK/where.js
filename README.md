@@ -23,7 +23,7 @@ It currently recognises :
   * chrome
   * chromium
   * firefox
-  * ie6,7,8,9,10,10touch
+  * ie6,7,8,9,10,10touch,11
   * safari
   * opera
 
