@@ -24,7 +24,7 @@
  *  to avoid conflicts.
  *
  ***************/
-(function() {
+;(function() {
 
   'use strict';
 
