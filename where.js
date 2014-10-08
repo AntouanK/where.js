@@ -3,6 +3,8 @@
  *
  *  Antonis Karamitros - 9 Feb 2014
  *
+ *  v 1.1
+ *
  *  lib to detect OS and browser we are in
  *
  *  -----------> NOTE <-----------
@@ -140,6 +142,9 @@
     },
     safari: function(){
       return /Constructor/.test(window.HTMLElement);
+    },
+    yandex: function(){
+      return navigator.vendor === "Yandex";
     }
   };
 
