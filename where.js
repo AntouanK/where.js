@@ -140,6 +140,9 @@
     },
     safari: function(){
       return /Constructor/.test(window.HTMLElement);
+    },
+    yandex: function(){
+      return navigator.vendor === "Yandex";
     }
   };
 
