@@ -3,6 +3,8 @@
  *
  *  Antonis Karamitros - 9 Feb 2014
  *
+ *  v 1.1
+ *
  *  lib to detect OS and browser we are in
  *
  *  -----------> NOTE <-----------

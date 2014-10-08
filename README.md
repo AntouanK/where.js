@@ -26,6 +26,7 @@ It currently recognises :
   * ie6,7,8,9,10,10touch,11
   * safari
   * opera
+  * yandex
 
 API
 =====
