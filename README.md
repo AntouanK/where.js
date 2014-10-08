@@ -3,7 +3,6 @@ where.js
 
 Where.js A lib for recognising the browser and the OS/platform you are running your JS in.
 
-[antouank.github.io/where.js](http://antouank.github.io/where.js/)
 
 It currently recognises :
 
