@@ -1,6 +1,6 @@
-where.js
-========
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/AntouanK/where.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+##where.js
+
+![v1.2](https://img.shields.io/badge/version-1.2-green.svg?style=flat)
 
 Where.js A lib for recognising the browser and the OS/platform you are running your JS in.
 
