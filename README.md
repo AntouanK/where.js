@@ -2,8 +2,7 @@
 
 ![v1.2](https://img.shields.io/badge/version-1.2-green.svg?style=flat)
 
-Where.js A weightless library ( 1 KB zipped ) for recognising the browser and the OS/platform you are running your JS in.
-
+A weightless library ( 1 KB zipped ) for recognising the browser and the OS/platform you are running your JS in.
 
 It currently recognises :
 
