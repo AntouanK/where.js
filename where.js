@@ -1,7 +1,7 @@
 /*
  *        where.js
  *
- *  Antonis Karamitros - 9 Feb 2014
+ *  Antonis Karamitros - 20 Dec 2014
  *
  *  v 1.2
  *
