@@ -42,10 +42,13 @@ Run the tests in the environment you are. Results are stored within the `where.j
 So you can call `where.os[osName]` or `where.browser[browserName]` to get your boolean value.
 Example
 ```javascript
-window.where.setNamespace(object);
-myNameSpace.testAll();
-if(myNameSpace.os.win){ /* means you are in windows */ }
-if(myNameSpace.browser.chrome){ /* means you have chrome, nice */ }
+var where = window.where; // or wherever you set the namespace of 'where'
+
+//	run the tests
+where.testAll();
+//	 check the browser, OS you want
+if(where.os.win){ /* means you are in windows */ }
+if(where.browser.chrome){ /* means you have chrome, nice */ }
 ```
 
 where.setPrefix(string)
