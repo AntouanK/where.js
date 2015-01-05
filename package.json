@@ -1,5 +1,5 @@
 {
-  "name": "browser/where.js",
+  "name": "browser-where.js",
   "version": "1.2.0",
   "description": "Library to detect OS and browser we are in",
   "main": "where.js",
