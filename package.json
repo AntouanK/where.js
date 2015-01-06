@@ -1,0 +1,25 @@
+{
+  "name": "browser-where.js",
+  "version": "1.2.0",
+  "description": "Library to detect OS and browser we are in",
+  "main": "where.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author" : "AntouanK <antouankar@gmail.com>",
+  "contributors" : [
+	  "Pascal Scheepers <pascal@privax.com>"
+  ],
+  "license" : "MIT",
+  "homepage" : "https://github.com/AntouanK/where.js",
+  "bugs" : "https://github.com/AntouanK/where.js/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AntouanK/where.js.git"
+  },
+  "keywords": [
+    "detection",
+    "os",
+    "browser"
+  ]
+}
