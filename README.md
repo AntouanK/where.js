@@ -3,7 +3,7 @@
 ![v1.2](https://img.shields.io/badge/version-1.2-green.svg?style=flat)
 
 A weightless library ( 1 KB gzipped ) for recognising the browser and the OS/platform you are running your JS in.
-Available from npm as [browser-where](https://www.npmjs.com/package/browser-where.js) .
+Available from npm as [browser-where.js](https://www.npmjs.com/package/browser-where.js), so you can just do `npm install browser-where.js` .
 
 It currently recognises :
 
